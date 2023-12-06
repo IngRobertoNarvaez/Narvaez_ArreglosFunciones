@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 /*Funcion para las sumas*/
 void sumamatriz(int fila, int columna, int matrizprimera[fila][columna], int matrizsegunda[fila][columna], int matrizresultante[fila][columna])
 {
@@ -19,6 +21,8 @@ int main(int argc, char const *argv[])
     printf("Ingrese el numero de columnas : ");
     scanf("%d", &columna);
     int matrizprimera[fila][columna], matrizsegunda[fila][columna], matrizresultante[fila][columna];
+    srand(time(NULL));
+
     /*Matriz aleatorrias tanto para la primera y la segunda*/
     for (int i = 0; i < fila; i++)
     {
@@ -34,7 +38,43 @@ int main(int argc, char const *argv[])
             matrizsegunda[i][j] = rand() % 100 + 1;
         }
     }
+    printf("\n");
+    printf("Matriz primera:\n");
+    printf("\n");
+    for (int i = 0; i < fila; i++)
+    {
+
+        for (int j = 0; j < columna; j++)
+        {
+            printf("%d ", matrizprimera[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    printf("Matriz Segunda:\n");
+    printf("\n");
+    for (int i = 0; i < fila; i++)
+    {
+
+        for (int j = 0; j < columna; j++)
+        {
+            printf("%d ", matrizsegunda[i][j]);
+        }
+        printf("\n");
+    }
     /*Se llama la funcion de sumas*/
-    sumarMatrices(fila, columna, matrizprimera, matrizsegunda, matrizresultante);
+    sumamatriz(fila, columna, matrizprimera, matrizsegunda, matrizresultante);
+    printf("\n");
+    printf("La matriz resultante de la suma es:");
+    printf("\n");
+    printf("\n");
+    for (int i = 0; i < fila; i++)
+    {
+        for (int j = 0; j < columna; j++)
+        {
+            printf("%d ", matrizresultante[i][j]);
+        }
+        printf("\n");
+    }
     return 0;
 }
